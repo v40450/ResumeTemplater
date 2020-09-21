@@ -1,0 +1,9 @@
+﻿@model Link
+@if (ViewData["Title"] == "Home page")
+{
+    <a href="http://www.freeCodeCamp.org/@Model.URLPath" target="_blank">freeCodeCamp portfolio</a>
+}
+else if (ViewData["Title"] == "Projects")
+{
+    <a href="http://www.github.com/@Model.URLPath" target="_blank">Github profile</a>
+}

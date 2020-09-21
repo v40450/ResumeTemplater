@@ -1,0 +1,46 @@
+﻿@page
+@model ResumeTemplater.Pages.ProjectsModel
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<div class="jumbotron jumbotron-fluid jumbotron-container text-white project-jumbotron">
+    <div class="container-fluid jumbotron-content">
+        <p class="text-center mb-4 jumbotron-header">Projects</p>
+    </div>
+</div>
+
+<div class="container">
+    @foreach (Project p in Model.Projects)
+    {
+        if (@p.Year > 2017)
+        {
+            <div class="project-container">
+                <h4 class="project-title general-header">
+                    @p.Title<!--  Project Title -->
+                </h4>
+                <p class="project-year general-header">
+                    @p.Year<!--  Project Year -->
+                </p>
+                <p class="project-description general-content">
+                    @p.Description<!--  Project Description -->
+                </p>
+                <p class="project-description general-header">Technologies: </p>
+                @foreach(string @tech in p.Technologies)
+                {
+                <span>@tech </span>
+                }
+            </div>
+        }
+    }
+    <br>
+    <h4 class="general-header">Portfolio</h4>
+    <p class="general-content">
+        <!-- Render partial for Link below -->
+        For more information regarding my projects, please refer to my
+        <partial name="_Links" model="@new Link(LinkType.GitHub, Model.GithubUsername)" />
+    </p>
+    <br>
+</div>
+
+
